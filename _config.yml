@@ -1,10 +1,10 @@
-url: https://ARMmbed.github.io
-baseurl: /DAPLink/
+url: https://blackstoneengineering.github.io
+baseurl: /mbedos-error/
 
 # Site settings
-title: DAPLink
+title: mbedos-error
 email: support@mbed.com
-description: "mbed DAPLink interface firmware."
+description: "Mbed OS error decoder"
 
 # Build settings
 markdown: kramdown

@@ -1,0 +1,50 @@
+#import requests
+#x = requests.get('https://os.mbed.com/api/v3/platforms/')
+#for thing in x.json():
+#    for otherthing in thing['features']:
+#        if otherthing['name'] == 'DAPLink':
+#            print'- %s:\n  name: %s\n  product_code: %s\n  fw_name: \n  instructions: \n    windows: \n    osx: \n    linux: \n' % (thing['name'], thing['name'], thing#['productcode'])
+#
+#cheat sheet https://github.com/mbedmicro/DAPLink/blob/7101d429a57b6bb287df4d45ba3a07ac3fe2dcd7/test/info.py
+---
+- default:
+    website: http://os.mbed.com/platforms
+    fw_version: '0246'
+    image_format: .bin
+    instructions:
+      windows: |
+        1. Download the firmware file.
+        1. While holding down the boards reset button, connect the boards USB debug port to the computer. It should enumerate and mount as `BOOTLOADER` or `MAINTENANCE`. For boards that enumerate as `BOOTLOADER` [see our blog to determine if an update for the DAPLink bootloader is available.](https://os.mbed.com/blog/entry/DAPLink-bootloader-update/)
+        1. Drag-and-drop the firmware file onto the mounted drive.
+        1. Wait for the file copy operation to complete.
+        1. Power cycle the board. It will now enumerate and mount as `DAPLINK` or the name of the board.
+      osx: |
+        1. Download the firmware file.
+        1. While holding down the boards reset button, connect the boards USB debug port to the computer. It should enumerate as `BOOTLOADER` or `MAINTENANCE`. For boards that enumerate as `BOOTLOADER` [see our blog to determine if an update for the DAPLink bootloader is available.](https://os.mbed.com/blog/entry/DAPLink-bootloader-update/)
+        1. In a terminal execute
+          - `sudo mount -u -w -o sync /Volumes/MAINTENANCE ; cp -X <path to firmware file> /Volumes/MAINTENANCE/`
+          - Note: If your drive does not mount as `MAINTENANCE` make sure to change this to match the name of the mounted disk attached to your system. 
+        1. Wait for the file copy operation to complete.
+        1. Power cycle the board. It will now enumerate and mount as `DAPLINK` or the name of the board.
+      linux: |
+        1. Download the firmware file.
+        1. While holding down the boards reset button, connect the boards USB debug port to the computer. It should enumerate as `BOOTLOADER` or `MAINTENANCE`. For boards that enumerate as `BOOTLOADER` [see our blog to determine if an update for the DAPLink bootloader is available.](https://os.mbed.com/blog/entry/DAPLink-bootloader-update/)
+        1. In a terminal execute
+          - `cp <path to firmware file> <MAINTENANCE> && sync`
+          - Note: make sure to change `MAINTENANCE` to the name of the mount point of the drive on your system.
+        1. Power cycle the board. It will now enumerate and mount as `DAPLINK` or the name of the board.
+
+- 0x80FF0100:
+    thing1: test data 1
+    thing2: test data 2
+  
+# - KL25Z:
+#   name: KL25Z
+#   product_code: 0200
+#   fw_name: k20dx_frdmkl25z_0x8000
+#   instructions:
+#     windows:
+#     osx:
+#     linux:
+
+---
