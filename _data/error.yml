@@ -1,14 +1,14 @@
 # TODO: create script that scrapes teh below data from http://github.com/armmbed/mbed-os/platform/mbed_error.h
 
 ---
-- type:
+type:
   0 : 'System'
   1 : 'Custom'
   2 : 'reserved'
   3 : 'Posix'
 
 
-- module_type:
+module_type:
   0 : 'Application'
   1 : 'Platform'
   2 : 'RTX Kernel'
@@ -35,7 +35,7 @@
   255 : 'Unknown module'
 
 
-- error_code:
+error_code:
   1 : 'Operation not permitted'
   2 : 'No such file or directory'
   3 : 'No such process'
