@@ -1,50 +1,237 @@
-#import requests
-#x = requests.get('https://os.mbed.com/api/v3/platforms/')
-#for thing in x.json():
-#    for otherthing in thing['features']:
-#        if otherthing['name'] == 'DAPLink':
-#            print'- %s:\n  name: %s\n  product_code: %s\n  fw_name: \n  instructions: \n    windows: \n    osx: \n    linux: \n' % (thing['name'], thing['name'], thing#['productcode'])
-#
-#cheat sheet https://github.com/mbedmicro/DAPLink/blob/7101d429a57b6bb287df4d45ba3a07ac3fe2dcd7/test/info.py
----
-- default:
-    website: http://os.mbed.com/platforms
-    fw_version: '0246'
-    image_format: .bin
-    instructions:
-      windows: |
-        1. Download the firmware file.
-        1. While holding down the boards reset button, connect the boards USB debug port to the computer. It should enumerate and mount as `BOOTLOADER` or `MAINTENANCE`. For boards that enumerate as `BOOTLOADER` [see our blog to determine if an update for the DAPLink bootloader is available.](https://os.mbed.com/blog/entry/DAPLink-bootloader-update/)
-        1. Drag-and-drop the firmware file onto the mounted drive.
-        1. Wait for the file copy operation to complete.
-        1. Power cycle the board. It will now enumerate and mount as `DAPLINK` or the name of the board.
-      osx: |
-        1. Download the firmware file.
-        1. While holding down the boards reset button, connect the boards USB debug port to the computer. It should enumerate as `BOOTLOADER` or `MAINTENANCE`. For boards that enumerate as `BOOTLOADER` [see our blog to determine if an update for the DAPLink bootloader is available.](https://os.mbed.com/blog/entry/DAPLink-bootloader-update/)
-        1. In a terminal execute
-          - `sudo mount -u -w -o sync /Volumes/MAINTENANCE ; cp -X <path to firmware file> /Volumes/MAINTENANCE/`
-          - Note: If your drive does not mount as `MAINTENANCE` make sure to change this to match the name of the mounted disk attached to your system. 
-        1. Wait for the file copy operation to complete.
-        1. Power cycle the board. It will now enumerate and mount as `DAPLINK` or the name of the board.
-      linux: |
-        1. Download the firmware file.
-        1. While holding down the boards reset button, connect the boards USB debug port to the computer. It should enumerate as `BOOTLOADER` or `MAINTENANCE`. For boards that enumerate as `BOOTLOADER` [see our blog to determine if an update for the DAPLink bootloader is available.](https://os.mbed.com/blog/entry/DAPLink-bootloader-update/)
-        1. In a terminal execute
-          - `cp <path to firmware file> <MAINTENANCE> && sync`
-          - Note: make sure to change `MAINTENANCE` to the name of the mount point of the drive on your system.
-        1. Power cycle the board. It will now enumerate and mount as `DAPLINK` or the name of the board.
+# TODO: create script that scrapes teh below data from http://github.com/armmbed/mbed-os/platform/mbed_error.h
 
-- 80FF0100:
-    thing1: test data 1
-    thing2: test data 2
-  
-# - KL25Z:
-#   name: KL25Z
-#   product_code: 0200
-#   fw_name: k20dx_frdmkl25z_0x8000
-#   instructions:
-#     windows:
-#     osx:
-#     linux:
+---
+- type:
+  0 : 'System'
+  1 : 'Custom'
+  2 : 'reserved'
+  3 : 'Posix'
+
+
+- module_type:
+  0 : 'Application'
+  1 : 'Platform'
+  2 : 'RTX Kernel'
+  3 : 'Network stack'
+  4 : 'HAL - Hardware Abstraction Layer'
+  5 : 'Memory Subsystem'
+  6 : 'Filesystem'
+  7 : 'Block device'
+  8 : 'Driver'
+  9 : 'Serial Driver'
+  10 : 'RTC Driver'
+  11 : 'I2C Driver'
+  12 : 'SPI Driver'
+  13 : 'GPIO Driver'
+  14 : 'Analog Driver'
+  15 : 'DigitalIO Driver'
+  16 : 'CAN Driver'
+  17 : 'Ethernet Driver'
+  18 : 'CRC Module'
+  19 : 'PWM Driver'
+  20 : 'QSPI Driver'
+  21 : 'USB Driver'
+  22 : 'SDK'
+  255 : 'Unknown module'
+
+
+- error_code:
+  1 : 'Operation not permitted'
+  2 : 'No such file or directory'
+  3 : 'No such process'
+  4 : 'Interrupted system call'
+  5 : 'I/O error'
+  6 : 'No such device or address'
+  7 : 'Argument list too long'
+  8 : 'Exec format error'
+  9 : 'Bad file number'
+  10 : 'No child processes'
+  11 : 'Try again'
+  12 : 'Out of memory'
+  13 : 'Permission denied'
+  14 : 'Bad address'
+  15 : 'Block device required'
+  16 : 'Device or resource busy'
+  17 : 'File exists'
+  18 : 'Cross-device link'
+  19 : 'No such device'
+  20 : 'Not a directory'
+  21 : 'Is a directory'
+  22 : 'Invalid argument'
+  23 : 'File table overflow'
+  24 : 'Too many open files'
+  25 : 'Not a typewriter'
+  26 : 'Text file busy'
+  27 : 'File too large'
+  28 : 'No space left on device'
+  29 : 'Illegal seek'
+  30 : 'Read-only file system'
+  31 : 'Too many links'
+  32 : 'Broken pipe'
+  33 : 'Math argument out of domain of func'
+  34 : 'Math result not representable'
+  35 : 'Resource deadlock would occur'
+  36 : 'File name too long'
+  37 : 'No record locks available'
+  38 : 'Function not implemented'
+  39 : 'Directory not empty'
+  40 : 'Too many symbolic links encountered'
+  41 : 'Operation would block'
+  42 : 'No message of desired type'
+  43 : 'Identifier removed'
+  44 : 'Channel number out of range'
+  45 : 'Level 2 not synchronized'
+  46 : 'Level 3 halted'
+  47 : 'Level 3 reset'
+  48 : 'Link number out of range'
+  49 : 'Protocol driver not attached'
+  50 : 'No CSI structure available'
+  51 : 'Level 2 halted'
+  52 : 'Invalid exchange'
+  53 : 'Invalid request descriptor'
+  54 : 'Exchange full'
+  55 : 'No anode'
+  56 : 'Invalid request code'
+  57 : 'Invalid slot'
+  58 : 'Resource deadlock would occur'
+  59 : 'Bad font file format'
+  60 : 'Device not a stream'
+  61 : 'No data available'
+  62 : 'Timer expired'
+  63 : 'Out of streams resources'
+  64 : 'Machine is not on the network'
+  65 : 'Package not installed'
+  66 : 'Object is remote'
+  67 : 'Link has been severed'
+  68 : 'Advertise error'
+  69 : 'Srmount error'
+  70 : 'Communication error on send'
+  71 : 'Protocol error'
+  72 : 'Multihop attempted'
+  73 : 'RFS specific error'
+  74 : 'Not a data message'
+  75 : 'Value too large for defined data type'
+  76 : 'Name not unique on network'
+  77 : 'File descriptor in bad state'
+  78 : 'Remote address changed'
+  79 : 'Can not access a needed shared library'
+  80 : 'Accessing a corrupted shared library'
+  81 : 'lib section in a.out corrupted'
+  82 : 'Attempting to link in too many shared libraries'
+  83 : 'Cannot exec a shared library directly'
+  84 : 'Illegal byte sequence'
+  85 : 'Interrupted system call should be restarted'
+  86 : 'Streams pipe error'
+  87 : 'Too many users'
+  88 : 'Socket operation on non-socket'
+  89 : 'Destination address required'
+  90 : 'Message too long'
+  91 : 'Protocol wrong type for socket'
+  92 : 'Protocol not available'
+  93 : 'Protocol not supported'
+  94 : 'Socket type not supported'
+  95 : 'Operation not supported on transport endpoint'
+  96 : 'Protocol family not supported'
+  97 : 'Address family not supported by protocol'
+  98 : 'Address already in use'
+  99 : 'Cannot assign requested address'
+  100 : 'Network is down'
+  101 : 'Network is unreachable'
+  102 : 'Network dropped connection because of reset'
+  103 : 'Software caused connection abort'
+  104 : 'Connection reset by peer'
+  105 : 'No buffer space available'
+  106 : 'Transport endpoint is already connected'
+  107 : 'Transport endpoint is not connected'
+  108 : 'Cannot send after transport endpoint shutdown'
+  109 : 'Too many references: cannot splice'
+  110 : 'Connection timed out'
+  111 : 'Connection refused'
+  112 : 'Host is down'
+  113 : 'No route to host'
+  114 : 'Operation already in progress'
+  115 : 'Operation now in progress'
+  116 : 'Stale NFS file handle'
+  117 : 'Structure needs cleaning'
+  118 : 'Not a XENIX named type file'
+  119 : 'No XENIX semaphores available'
+  120 : 'Is a named type file'
+  121 : 'Remote I/O error'
+  122 : 'Quota exceeded'
+  123 : 'No medium found'
+  124 : 'Wrong medium type'
+  125 : 'Operation Canceled'
+  126 : 'Required key not available'
+  127 : 'Key has expired'
+  128 : 'Key has been revoked'
+  129 : 'Key was rejected by service'
+  130 : 'Owner died'
+  131 : 'State not recoverable'
+  256 : 'Unknown error'
+  257 : 'Invalid Argument'
+  258 : 'Invalid data'
+  259 : 'Invalid format'
+  260 : 'Invalid Index'
+  261 : 'Inavlid Size'
+  262 : 'Invalid Operation'
+  263 : 'Not Found'
+  264 : 'Access Denied'
+  265 : 'Not supported'
+  266 : 'Buffer Full'
+  267 : 'Media/Disk Full'
+  268 : 'Already in use'
+  269 : 'Timeout error'
+  270 : 'Not Ready'
+  271 : 'Requested Operation failed'
+  272 : 'Operation prohibited'
+  273 : 'Operation failed'
+  274 : 'Attempt to write to write-protected resource'
+  275 : 'No response'
+  276 : 'Sempahore lock failed'
+  277 : 'Mutex lock failed'
+  278 : 'Sempahore unlock failed'
+  279 : 'Mutex unlock failed'
+  280 : 'CRC error or mismatch'
+  281 : 'Open failed'
+  282 : 'Close failed'
+  283 : 'Read failed'
+  284 : 'Write failed'
+  285 : 'Initialization failed'
+  286 : 'Boot failure'
+  287 : 'Out of memory'
+  288 : 'Out of resources'
+  289 : 'Alloc failed'
+  290 : 'Free failed'
+  291 : 'Overflow error'
+  292 : 'Underflow error'
+  293 : 'Stack overflow error'
+  294 : 'ISR queue overflow'
+  295 : 'Timer Queue overflow'
+  296 : 'Standard library error - Space unavailable'
+  297 : 'Standard library error - Exception'
+  298 : 'Standard library error - Mutex Init failure'
+  299 : 'Create failed'
+  300 : 'Delete failed'
+  301 : 'Thread Create failed'
+  302 : 'Thread Delete failed'
+  303 : 'Operation Prohibited in ISR context'
+  304 : 'Pinmap Invalid'
+  305 : 'Unknown Rtos Error'
+  306 : 'Rtos Thread Error'
+  307 : 'Rtos Mutex Error'
+  308 : 'Rtos Semaphore Error'
+  309 : 'Rtos Memory Pool Error'
+  310 : 'Rtos Timer Error'
+  311 : 'Rtos Event flags Error'
+  312 : 'Rtos Message queue Error'
+  313 : 'Device Busy'
+  314 : 'Configuration not supported'
+  315 : 'Configuration mismatch'
+  316 : 'Already initialzied'
+  317 : 'HardFault exception'
+  318 : 'MemManage exception'
+  319 : 'BusFault exception'
+  320 : 'UsageFault exception'
+
 
 ---
