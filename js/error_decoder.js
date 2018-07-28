@@ -29,9 +29,6 @@ function ShowErrorCodes(type,module_type,error_code){
     } else {
     	$('#error_code').html("This type has not been defined yet. Please let support@mbed.com know that there has been an issue.")
     }
-	
-
-	
 
 }
 
@@ -71,13 +68,27 @@ function DecodeErrorCode(err){
 
 
 
+document.getElementById('error-search').onkeydown = function SearchBox(event){
+	// console.log("event.keyCode ="+event.keyCode)
+	if (event.keyCode == 13) {
+		var err = $('#error-search').val()
+		// console.log("err = "+err)
+        // console.log('running search box on '+err)
+		var x = DecodeErrorCode(err)
+	    ShowErrorCodes(x['type'],x['module_type'],x['error_code'])
+    }
+
+}
+
 var params = [];
 var hashes = window.location.href.replace(/#.+/,'').slice(window.location.href.indexOf('?') + 1).split('&');
 for(var i = 0; i < hashes.length; i++)
 {
     var hash = hashes[i].split('=');
-    params[hash[0].toLowerCase()] = hash[1].toLowerCase();
-    console.log(hash[0]+"="+hash[1])
+    if(typeof hash[1] != 'undefined'){ // safety check added to bypass error on normal loading of page
+    	params[hash[0].toLowerCase()] = hash[1].toLowerCase();
+    	console.log(hash[0]+"="+hash[1])
+	}
 };
 
 console.log("------\n\rhashes = "+hashes)
