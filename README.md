@@ -1,4 +1,4 @@
-## DAPLink interface firmware update microsite
+## Mbed OS Error microsite
 
 <!-- [![Build Status](https://travis-ci.org/ARMmbed/mbedos-error.svg?branch=gh-pages)](https://travis-ci.org/ARMmbed/mbedos-error) -->
 
