@@ -1,8 +1,6 @@
 ## Mbed OS Error microsite
 
-<!-- [![Build Status](https://travis-ci.org/ARMmbed/mbedos-error.svg?branch=gh-pages)](https://travis-ci.org/ARMmbed/mbedos-error) -->
-
-Go to [https://blackstoneengineering.github.io/mbedos-error](https://blackstoneengineering.github.io/mbedos-error)
+Go to [https://ArmMbed.github.io/mbedos-error](https://armmbed.github.io/mbedos-error)
 
 The purpose of this microsite is
 1. parse mbed OS error messages in a user friendly way
