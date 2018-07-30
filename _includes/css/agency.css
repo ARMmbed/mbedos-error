@@ -368,6 +368,11 @@ section h3.section-subheading {
     display:none;
 }
 
+#error-search{
+    font-size: 20pt;
+    width: 30%;
+}
+
 .timeline {
     position: relative;
     padding: 0;
