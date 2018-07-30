@@ -3,29 +3,29 @@
 - question1: 
   question: What are the Mbed OS error reports?
   answer: |
-    When something goes very wrong with your Mbed OS based program it will crash and print out an error report to the serial terminal with information related to the casue and location of the error. 
-    <br>An example error report from Mbed-OS is as below.
+    When something goes wrong with your Mbed OS based program, the program crashes and prints an error report to the serial terminal with information related to the casue and location of the error. 
+    <br>An example error report from Mbed OS:
     ```
-    ++ Mbed OS Error Info ++
+    ++ Mbed OS error info ++
     Error Status: 0x80010132 Code: 306 Module: 1
     Error Message: Thread: 0x20001F0C, System is out of memory
     Location: 0x1DB7
     Error Value: 0x20001F0C
     Current Thread: Id: 0x20001F0C Entry: 0x2701 StackSize: 0x1000 StackMem: 0x20001F58 SP: 0x20002EF0
     For more info, goto: https://armmbed.io/mbedos-error/?error=0x80010132
-    -- MbedOS Error Info --
+    -- Mbed OS error info --
     ```
 
 - question2: 
-  question: What does the Mbed OS Error Status mean?
-  answer: Error Status in Mbed OS is a 32-bit signed integer used for reporting error conditions in the system. The Error Status-es are always NEGATIVE and encodes - Type of error, Module which caused the error and the Error code which indicates the cause of the error.
+  question: What does the Mbed OS error status mean?
+  answer: Error status in Mbed OS is a 32-bit signed integer used for reporting error conditions in the system. The error statuses are always NEGATIVE and encodes - type of error, module that caused the error and the error code that indicates the cause of the error.
 
 - question3: 
-  question: How do I modify the error messages to print out more detailed information?
-  answer: Mbed-OS error handling system exposes specific interfaes for an application or any Mbed-OS sub-system to report errors or warnings. These APIs take error message strings as one of it's argument and clients can use this argument to specify context specific error messages.
+  question: How do I modify the error messages to print more detailed information?
+  answer: The Mbed OS error handling system exposes specific interfaces for an application or any Mbed OS subsystem to report errors or warnings. These APIs take error message strings as arguments, and clients can use these arguments to specify context-specific error messages.
 
 - question4: 
-  question: Where can I find more information on Mbed OS error handling system?
+  question: Where can I find more information on the Mbed OS error handling system?
   answer: Please look into documentation for Mbed OS error handling - [https://os.mbed.com/docs/v5.9/reference/error-handling.html](https://os.mbed.com/docs/v5.9/reference/error-handling.html)
 
 ---
