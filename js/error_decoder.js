@@ -62,10 +62,10 @@ function DecodeErrorCode(err){
 				'error_code':error_code
 	}
 
-	ga('send', 'errorCode', error_code);
-	ga('send', 'moduleType', module_type);
-	ga('send', 'type', type);
-	ga('send', 'err', err);
+	ga('send', 'unified', {'error_code':error_code});
+	ga('send', 'split', {'module_type':module_type});
+	ga('send', 'split', {'type':type});
+	ga('send', 'split', {'err':err});
 	ga('send', {
 	  hitType: 'errorDecode',
 	  eventCategory: 'single',
