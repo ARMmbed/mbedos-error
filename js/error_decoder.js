@@ -61,6 +61,11 @@ function DecodeErrorCode(err){
 				'module_type':module_type,
 				'error_code':error_code
 	}
+	ga('set', 'error_code', error_code);
+	ga('set', 'module_type', module_type);
+	ga('set', 'type', type);
+	ga('set', 'err', err);
+
 
 	return(ret)
 
