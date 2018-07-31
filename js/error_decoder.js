@@ -62,15 +62,22 @@ function DecodeErrorCode(err){
 				'error_code':error_code
 	}
 
-	ga('send', 'unified', {'error_code':error_code});
-	ga('send', 'split', {'module_type':module_type});
-	ga('send', 'split', {'type':type});
-	ga('send', 'split', {'err':err});
-	ga('send', {
-	  hitType: 'errorDecode',
-	  eventCategory: 'single',
-	  eventValue: err
-	});
+	// ga('send', 'unified', {'error_code':error_code});
+	// ga('send', 'split', {'module_type':module_type});
+	// ga('send', 'split', {'type':type});
+	// ga('send', 'split', {'err':err});
+	// ga('send', {
+	//   hitType: 'errorDecode',
+	//   eventCategory: 'single',
+	//   eventValue: err
+	// });
+
+	gtag('event', 'foo', {
+	     'err': err,
+	     'type': type,
+	     'module_type': module_type,
+	     'error_code' : error_code,
+	 });
 
 	return(ret)
 
