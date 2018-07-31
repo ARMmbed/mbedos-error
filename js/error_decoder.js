@@ -72,7 +72,7 @@ function DecodeErrorCode(err){
 	//   eventValue: err
 	// });
 
-	gtag('event', 'foo', {
+	gtag('event', 'Decode', {
 	     'err': err,
 	     'type': type,
 	     'module_type': module_type,
