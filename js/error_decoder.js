@@ -65,7 +65,11 @@ function DecodeErrorCode(err){
 	ga('send', 'module_type', module_type);
 	ga('send', 'type', type);
 	ga('send', 'err', err);
-
+	ga('send', {
+	  hitType: 'error_decode',
+	  eventCategory: 'single',
+	  eventLabel: err
+	});
 
 	return(ret)
 
