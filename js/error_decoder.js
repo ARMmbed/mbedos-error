@@ -61,10 +61,10 @@ function DecodeErrorCode(err){
 				'module_type':module_type,
 				'error_code':error_code
 	}
-	gtag('set', 'error_code', error_code);
-	gtag('set', 'module_type', module_type);
-	gtag('set', 'type', type);
-	gtag('set', 'err', err);
+	ga('send', 'error_code', error_code);
+	ga('send', 'module_type', module_type);
+	ga('send', 'type', type);
+	ga('send', 'err', err);
 
 
 	return(ret)
