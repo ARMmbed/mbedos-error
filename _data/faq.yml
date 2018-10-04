@@ -3,7 +3,7 @@
 - question1: 
   question: What are the Mbed OS error reports?
   answer: |
-    When something goes wrong with your Mbed OS based program, the program crashes and prints an error report to the serial terminal with information related to the casue and location of the error. 
+    When something goes wrong with your Mbed OS based program, the program crashes and prints an error report to the serial terminal with information related to the cause and location of the error. 
     <br>An example error report from Mbed OS:
     ```
     ++ Mbed OS error info ++
@@ -18,7 +18,7 @@
 
 - question2: 
   question: What does the Mbed OS error status mean?
-  answer: Error status in Mbed OS is a 32-bit signed integer used for reporting error conditions in the system. The error statuses are always NEGATIVE and encodes - type of error, module that caused the error and the error code that indicates the cause of the error.
+  answer: Error status in Mbed OS is a 32-bit signed integer used for reporting error conditions in the system. The error statuses are always NEGATIVE and encode - type of error, module that caused the error and the error code that indicates the cause of the error.
 
 - question3: 
   question: How do I modify the error messages to print more detailed information?
@@ -26,6 +26,6 @@
 
 - question4: 
   question: Where can I find more information on the Mbed OS error handling system?
-  answer: Please look into documentation for Mbed OS error handling - [https://os.mbed.com/docs/v5.9/reference/error-handling.html](https://os.mbed.com/docs/v5.9/reference/error-handling.html)
+  answer: Please look into documentation for Mbed OS error handling - [https://os.mbed.com/docs/latest/apis/error-handling.html](https://os.mbed.com/docs/latest/apis/error-handling.html)
 
 ---
