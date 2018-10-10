@@ -3,6 +3,7 @@
 var type_arr = {{site.data.error.type | jsonify}}
 var module_arr = {{site.data.error.module_type | jsonify}}
 var error_arr = {{site.data.error.error_code | jsonify}}
+var error_help_arr = {{site.data.error.error_hint | jsonify}}
 
 function ShowErrorCodes(type,module_type,error_code){
 	console.log("info looked up from error.yml = "+type_arr[type]+","+module_arr[module_type]+","+error_arr[error_code] )
@@ -18,14 +19,20 @@ function ShowErrorCodes(type,module_type,error_code){
     	$('#error_type').html("This type has not been defined yet. Please let support@mbed.com know that there has been an issue.")
     }
 
+    // fill in module 
     if(typeof module_arr[module_type] !='undefined'){
     	$('#module_type').html(module_arr[module_type]);
     } else {
  		$('#module_type').html("This type has not been defined yet. Please let support@mbed.com know that there has been an issue.")   	
     }
 
+    // fill in error code text
     if(typeof error_arr[error_code] !='undefined'){
     	$('#error_code').html(error_arr[error_code]);
+    	// if there is error help text add it
+    	if(typeof error_help_arr[error_code] !='undefined'){
+	    	$('#error_help').html(error_help_arr[error_code])
+	    }
     } else {
     	$('#error_code').html("This type has not been defined yet. Please let support@mbed.com know that there has been an issue.")
     }
