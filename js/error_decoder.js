@@ -122,6 +122,7 @@ if (typeof params['error'] != 'undefined') {
 	console.log("decoding error code "+params['error'])
 	var x = DecodeErrorCode(params['error'])
     ShowErrorCodes(x['type'],x['module_type'],x['error_code'])
+    $('#error-search').attr("placeholder",params['error'].toString())
 }
 else if (typeof params['error_code'] != 'undefined') {
 	console.log("decoding "+params['type']+","+params['module_type']+","+params['error_code'])
