@@ -86,6 +86,11 @@ function DecodeErrorCode(err){
 	     'error_code' : error_code,
 	 });
 
+	ga('send','event','error_decode','error_decode','error',err);
+	ga('send','event','error_decode','error_decode','error_code',error_code);
+	ga('send','event','error_decode','error_decode','module_type',module_type);
+	ga('send','event','error_decode','error_decode','type',type);
+
 	return(ret)
 
 }
@@ -98,10 +103,11 @@ document.getElementById('error-search').onkeydown = function SearchBox(event){
 		var err = $('#error-search').val()
 		// console.log("err = "+err)
         // console.log('running search box on '+err)
-		var x = DecodeErrorCode(err)
-	    ShowErrorCodes(x['type'],x['module_type'],x['error_code'])
+		// var x = DecodeErrorCode(err)
+	    // ShowErrorCodes(x['type'],x['module_type'],x['error_code'])
 	    var location = "{{site.url}}{{site.baseurl}}?error="+err.toString();
 	    console.log("new URL is "+location);
+	    ga('send','error_decode','error_search','search',err)
 	    window.location = location
     }
 
