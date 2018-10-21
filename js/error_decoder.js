@@ -86,10 +86,10 @@ function DecodeErrorCode(err){
 	     'error_code' : error_code,
 	 });
 
-	ga('send','event','error_decode','error',err,1);
-	ga('send','event','error_decode','error_code',error_code,1);
-	ga('send','event','error_decode','module_type',module_type,1);
-	ga('send','event','error_decode','type',type,1);
+	ga('send','event','error_decode','error',err.toString(),1);
+	ga('send','event','error_decode','error_code',error_code.toString(),1);
+	ga('send','event','error_decode','module_type',module_type.toString(),1);
+	ga('send','event','error_decode','type',type.toString(),1);
 
 	return(ret)
 
