@@ -100,6 +100,9 @@ document.getElementById('error-search').onkeydown = function SearchBox(event){
         // console.log('running search box on '+err)
 		var x = DecodeErrorCode(err)
 	    ShowErrorCodes(x['type'],x['module_type'],x['error_code'])
+	    var location = "{{site.url}}{{site.baseurl}}?error="+err.toString();
+	    console.log("new URL is "+location);
+	    window.location = location
     }
 
 }
