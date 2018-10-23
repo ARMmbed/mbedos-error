@@ -107,7 +107,7 @@ document.getElementById('error-search').onkeydown = function SearchBox(event){
 	    // ShowErrorCodes(x['type'],x['module_type'],x['error_code'])
 	    var location = "{{site.url}}{{site.baseurl}}?error="+err.toString();
 	    console.log("new URL is "+location);
-	    ga('send','error_decode','error_search','search',err)
+	    ga('send','error_search','search',err.toString(),1)
 	    window.location = location
     }
 
