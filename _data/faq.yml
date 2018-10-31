@@ -12,7 +12,7 @@
     Location: 0x1DB7
     Error Value: 0x20001F0C
     Current Thread: Id: 0x20001F0C Entry: 0x2701 StackSize: 0x1000 StackMem: 0x20001F58 SP: 0x20002EF0
-    For more info, goto: https://armmbed.io/mbedos-error/?error=0x80010132
+    For more info, goto: https://armmbed.github.io/mbedos-error/?error=0x80010132
     -- Mbed OS error info --
     ```
 
