@@ -1,5 +1,5 @@
 ---
-layout: analytics
+layout: temp
 title: analytics
 permalink: /analytics.txt
 ---
